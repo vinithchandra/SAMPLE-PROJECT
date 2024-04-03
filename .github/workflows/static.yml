@@ -77,7 +77,8 @@ test:
           git add screenshot_*.png
           git commit -m "Add screenshot taken during Selenium test"
           git push
-  deploy:
+
+deploy:
     needs: sonarcloud
     environment:
       name: github-pages
