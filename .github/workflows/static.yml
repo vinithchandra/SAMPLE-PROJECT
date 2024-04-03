@@ -34,7 +34,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-test:
+
+  test:
     needs: sonarcloud
     runs-on: ubuntu-latest  # Runs on Ubuntu environment
 
@@ -77,8 +78,8 @@ test:
           git add screenshot_*.png
           git commit -m "Add screenshot taken during Selenium test"
           git push
-
-deploy:
+          
+  deploy:
     needs: sonarcloud
     environment:
       name: github-pages
