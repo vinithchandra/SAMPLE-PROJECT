@@ -8,27 +8,17 @@ options = webdriver.ChromeOptions()
 options.add_argument("--headless")
 options.add_argument('--no-sandbox')
 driver = webdriver.Chrome(service=service, options=options)
+driver.get("https://vinithchandra.github.io/SAMPLE-PROJECT/")  # Update this with the path to your HTML file
 
-# Open the webpage
-driver.get("https://vinithchandra.github.io/SAMPLE-PROJECT/")
+time.sleep(2)  # Adding a delay to see the result
 
-# Wait for the webpage to load
-print("Waiting for the webpage to load...")
-time.sleep(5)
-
-# Check the webpage title
-print("Checking the webpage title...")
+# Assert some condition to verify the result
 assert "Sample Project" in driver.title
-
-# Print the webpage title
-#print("Webpage title:", driver.title)
 
 # Take a screenshot
 timestamp = time.strftime("%Y%m%d-%H%M%S")
 screenshot_file = f"screenshot_{timestamp}.png"
 driver.save_screenshot(screenshot_file)
-#print(f"Screenshot saved to {screenshot_file}")
 
 # Close the WebDriver
 driver.close()
-#print("WebDriver closed.")
