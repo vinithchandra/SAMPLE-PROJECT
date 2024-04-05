@@ -68,7 +68,7 @@ jobs:
 
       # Step to execute Selenium tests
       - name: Run Selenium tests
-        run: sample test4.py
+        run: mani.py
 
       # Step to save screenshots if tests succeed
       - name: Save screenshot to repository
